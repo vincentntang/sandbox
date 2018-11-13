@@ -1,0 +1,62 @@
+body {
+  background-color: lightblue;
+}
+
+.container {
+  background-color: lightgrey;
+}
+
+.container {
+  max-width: 700px;
+  border: 1px solid black;
+}
+
+button {
+  width: 100%;
+}
+
+[class*="col-"] {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.col-10 {
+  max-width: calc(100% - 75px);
+}
+
+img {
+  max-width: 75px;
+  /* so image doesn't expand past col */
+  max-height: 75px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#status {
+  overflow: hidden;
+}
+
+#logo {
+  min-width: 75px;
+}
+
+p {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 60px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 240px) {
+  .col-4 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
