@@ -1,0 +1,21 @@
+img {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+body {
+  font-family: 'Lobster', Times New Roman;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/1200px-Wikipedia-logo-v2.svg.png');
+  background-repeat: no-repeat;
+  background-size: 300px 300px;
+  background-attachment: fixed;
+}
+.heading {
+  background-color: black;
+  border-radius:25px;
+  padding: 20px;
+  display: inline-block;
+}
+button {
+  margin: 1%;
+}
