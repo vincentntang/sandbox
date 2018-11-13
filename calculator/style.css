@@ -1,0 +1,71 @@
+/*********************** MOCHA TDD STYLES ****************/
+.error {
+  max-height: 25px !important;
+}
+
+/*********************** GLOBAL ****************/
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+h2#title {
+  margin: 2px;
+  text-align: center;
+}
+
+.calculator {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #dfd8d0;
+  /* light pink */
+}
+
+.display {
+  background-color: #c3c2ab;
+  /* retro green */
+  border-radius: 10px;
+  border: 2px solid black;
+  text-align: right;
+  padding-right: 5px;
+}
+.display #output {
+  font-size: 20px;
+}
+.display #entry {
+  color: grey;
+}
+.display p {
+  margin: 0px;
+}
+
+/*********************** BUTTONS ****************/
+/* https://gridbyexample.com/examples/example19/ */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(5, 20%);
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+.buttons button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 110%;
+  background-color: black;
+  color: white;
+}
+.buttons button[value="AC"],
+.buttons button[value="CE"] {
+  background-color: #a72d45;
+  /* dark red */
+}
+.buttons #equal-button {
+  grid-column: 4/5;
+  grid-row: 4/6;
+}
+.buttons #zero-button {
+  grid-row: 5/6;
+  grid-column: 1/3;
+}
