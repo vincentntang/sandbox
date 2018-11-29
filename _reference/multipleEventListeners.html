@@ -1,0 +1,36 @@
+<script>
+  sliders = document.querySelectorAll("input");
+  sliders.forEach(item => {
+    item.addEventListener('input', (e) => {
+      console.log(`${item.getAttribute("data-whatever")} is this value: ${e.target.value}`);
+      item.nextElementSibling.textContent = e.target.value;
+    });
+  })
+</script>
+<style>
+  .wrapper {
+    display: flex;
+  }
+
+  span {
+    padding-right: 30px;
+    margin-left: 5px;
+  }
+
+  * {
+    font-size: 12px
+  }
+</style>
+<div class="wrapper">
+  <input type="range" min="1" data-whatever="size" max="800" value="50" id="sliderSize">
+  <em>50</em>
+  <span>Size</span>
+  <br>
+  <input type="range" min="1" data-whatever="OriginY" max="800" value="50" id="sliderOriginY">
+  <em>50</em>
+  <span>OriginY</span>
+  <br>
+  <input type="range" min="1" data-whatever="OriginX" max="800" value="50" id="sliderOriginX">
+  <em>50</em>
+  <span>OriginX</span>
+</div>
