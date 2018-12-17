@@ -9,3 +9,7 @@ This is where I put mini reference projects from exercises that only require a f
 - [Calculator](https://vincentntang.github.io/sandbox/calculator/) - Shuntyard Calculator with Mocha+Chai unit testing, and CSS grid. *temporarily broken*
 - [Wiki Search](https://vincentntang.github.io/sandbox/wiki-search/) - Wikipedia search tool that calls its' API
 - [Twitch Users](https://vincentntang.github.io/sandbox/twitch-users/) - Search if Twitch user is online
+
+Other projects not on repo
+
+- [catch-of-day](https://catch-of-day.netlify.com/) - React / firebase app menu from wesbos
