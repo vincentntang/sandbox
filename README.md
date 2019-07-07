@@ -1,6 +1,4 @@
-# sandbox
-
-This is where I put mini reference projects from exercises that only require a frontend
+A listing of all the projects I made
 
 ## VanillaJS
 
