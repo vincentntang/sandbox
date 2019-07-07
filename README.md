@@ -16,4 +16,5 @@ A listing of all the projects I made
 
 ## Vue
 
+- [Pokemon Battle](https://vincentntang.github.io/sandbox/pokemon-battle/) - My first introduction to Vue
 - [E-commerce Desk Configurator](https://vincentntang.github.io/sandbox/ecommerce-desk/) - I made this while shopping for a standing desk
