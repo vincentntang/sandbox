@@ -1,0 +1,223 @@
+<div id="app">
+  <div class="main-wrapper">
+    <h2>Desk Configurator</h2>
+    <div class="img-main-wrapper">
+      <transition name="fade" mode="out-in">
+        <img v-if="currentChairIndex !== undefined" :key=chairs[currentChairIndex].main
+             :src="chairs[currentChairIndex].main" class="img-absolute">
+      </transition>
+      <transition name="fade" mode="out-in">
+        <img v-if="currentMatIndex !== undefined" :key=mats[currentMatIndex].main
+             :src="mats[currentMatIndex].main" class="img-absolute">
+      </transition>
+      <img class="img-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/jarvis-silver-rec-base%5B1%5D.png" alt="">
+    </div>
+    <div v-if="progressBarOn" class="progress-bar-wrapper">
+      <div class="progress-bar" :style="{width: progressBar}"></div>
+    </div>
+    <div class="content-row">
+      <h3>Choose your chair</h3>
+      <div class="img-thumbnail-wrapper">
+        <img v-for="(chair, index) in chairs" 
+             class="img-thumbnail" :src="chair.thumbnail" 
+             @click="_handleImagePreview({key: 'currentChairIndex',value: index})"
+             :class="currentChairIndex == index ? 'activeClass' : ''"
+             >
+        </img>
+      </div>
+    </div>
+    <div class="content-row">
+      <h3>Choose your mat</h3>
+      <div class="img-thumbnail-wrapper">
+        <img v-for="(mat, index) in mats" 
+             class="img-thumbnail" :src="mat.thumbnail" 
+             @click="_handleImagePreview({key: 'currentMatIndex',value: index})"
+             :class="currentMatIndex == index ? 'activeClass' : ''"
+             >
+        </img>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+
+<style>
+  /** HTML ELEMENTS **/
+body {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/white_wall_hash.png");
+  padding: 25px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+img {
+  width: 100%;
+}
+
+/** MAIN STYLES **/
+#app {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.main-wrapper {
+  padding: 50px;
+  width: 400px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.075);
+  background-color: white;
+}
+
+.img-main-wrapper {
+  position: relative;
+}
+
+.img-absolute {
+  position: absolute;
+}
+
+.content-row {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-wrapper {
+    padding: 20px;
+  }
+
+  body {
+    padding: 10px;
+  }
+}
+/** CHOOSE ITEMS STYLES **/
+.img-thumbnail-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img-thumbnail {
+  box-sizing: border-box;
+  width: 33%;
+  max-width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/** CONDITIONAL CLASSES **/
+.activeClass {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/** TRANSITIONS **/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.20s ease-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+/** PROGRESS BAR **/
+.progress-bar {
+  height: 5px;
+  background-color: red;
+}
+</style>
+<script>
+  var mainElement = new Vue({
+  el: '#app',
+  data() {
+    return {
+      progressBarOn: true,
+      progressBar: 0,
+      intervalProgress: undefined,
+      intervalItem: undefined,
+      currentChairIndex: undefined,
+      currentMatIndex: undefined,
+      mats: [
+        {
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/60173a0e1f52d4f447badd1af3c170e6%5B1%5D.png',
+          main: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/overlay-stand-mat-black%5B1%5D.png',
+        },
+        {
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/cd8d9d636efc7bed2d7bb96d3925cd7c%5B1%5D.png',
+          main: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/topom-black%5B1%5D.png',
+        },
+        {
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/09b6e9f4d055b575b094a9c85dc89594%5B1%5D.png',
+          main: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/fully-jarvis-standing-desk-floatdeck-balance-board-ov-01%5B1%5D.png',
+        }
+      ],
+      chairs: [
+        {
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/09710f3d9e55a7f8ad2e8353327ac7ff%5B1%5D.png',
+          main: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/fully-luna-standing-desk-stool-jarvis-config-black-black-v01%5B1%5D.png',
+        },
+        {
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/d0b4d1278dbe18b7c0c99753953a1e7b%5B1%5D.png',
+          main: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/config-ttc-natural-v2%5B1%5D.png'
+        },
+        {
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/be784f6a320c39e063bba64cf936f09c%5B1%5D.png', 
+          main: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/867725/fully-jarvis-crank-config-8010-blackblack%5B1%5D.png'
+        }
+      ]
+    }
+  },
+  methods: {
+    /**
+     * @params event is an object
+     * key = type of item clicked
+     * value = index passed in
+     */
+    _handleImagePreview(event){
+      // Disable timer functionality
+      clearInterval(this.intervalItem);
+      clearInterval(this.intervalProgress);
+      this.progressBarOn = false;
+      
+      // Show item clicked
+      let index = event.value;
+      let dataType = event.key;
+      if(this[dataType] == index){
+        this[dataType] = undefined;
+      } else {
+        this[dataType] = index;
+      }
+    },
+  },
+  mounted(){
+    let progressCount = 0;
+    let count = 0;
+    let maxArrayLength = this.chairs.length;
+    
+    this.intervalProgress = setInterval(() => {
+      this.progressBar = progressCount + '%'
+      progressCount += 0.1111111; /* 100%/(9000/10) */
+      if(progressCount > 100){
+        progressCount = 0;
+      }
+    }, 10);
+    
+    this.intervalItem = setInterval(() =>{
+      console.log("I ran");
+      this.currentChairIndex = count;
+      this.currentMatIndex = count;
+      if(count < maxArrayLength - 1){
+        count++;
+      } else {
+        count = 0;
+      }
+    },3000)
+  }
+});
+
+</script>
