@@ -18,3 +18,7 @@ A listing of all the projects I made
 
 - [Pokemon Battle](https://vincentntang.github.io/sandbox/pokemon-battle/) - My first introduction to Vue
 - [E-commerce Desk Configurator](https://vincentntang.github.io/sandbox/ecommerce-desk/) - I made this while shopping for a standing desk
+
+## Hackathon Apps
+
+- [DevPost](https://devpost.com/vincentntang) - Machine Learning, SMS based tools, game dev, and much more here
